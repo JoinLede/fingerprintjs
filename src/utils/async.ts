@@ -16,7 +16,7 @@ export function requestIdleCallbackIfAvailable(fallbackTimeout: number, deadline
   }
 }
 
-export function isPromise<T>(value: PromiseLike<T> | unknown): value is PromiseLike<T> {
+export function isPromise<T>(value: PromiseLike<T> | MaybePromise<T>): value is PromiseLike<T> {
   return value && typeof (value as PromiseLike<T>).then === 'function'
 }
 

@@ -148,8 +148,10 @@ function withNaturalFonts<T>(
 
     // See the big comment above
     if (isChromium()) {
+      // @ts-expect-error zoom isn't a standard property
       iframeBody.style.zoom = `${1 / iframeWindow.devicePixelRatio}`
     } else if (isWebKit()) {
+      // @ts-expect-error zoom isn't a standard property
       iframeBody.style.zoom = 'reset'
     }
 

@@ -22,7 +22,9 @@ export default function getTouchSupport(): TouchSupport {
   let touchEvent: boolean
   if (n.maxTouchPoints !== undefined) {
     maxTouchPoints = toInt(n.maxTouchPoints)
+    // @ts-expect-error msMaxTouchPoints isn't a standard property
   } else if (n.msMaxTouchPoints !== undefined) {
+    // @ts-expect-error msMaxTouchPoints isn't a standard property
     maxTouchPoints = n.msMaxTouchPoints
   }
   try {
@@ -32,6 +34,7 @@ export default function getTouchSupport(): TouchSupport {
     touchEvent = false
   }
   const touchStart = 'ontouchstart' in window
+
   return {
     maxTouchPoints,
     touchEvent,
